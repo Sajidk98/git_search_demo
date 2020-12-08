@@ -11,7 +11,7 @@ const Dashboard = () => {
   }, []);
   console.log(data, "showing data");
 
-  return <div>Hello Dashboard!!!!!!!!!!!!!!!</div>;
+  return <div>Hello Search!!!!!!!!!!!!!!!</div>;
 };
 
 export default Dashboard;
