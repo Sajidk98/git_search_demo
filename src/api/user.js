@@ -1,8 +1,7 @@
-import axios from "axios";
+import API from "./config";
 
 export const fetchUsers = () => {
-  return axios
-    .get("https://jsonplaceholder.typicode.com/users")
+  return API.get("/users")
     .then((response) => {
       return response.data;
     })
