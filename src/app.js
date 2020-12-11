@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import createSagaMiddleware from "redux-saga";
+import { ThemeProvider } from "@material-ui/styles";
+
 
 // import thunk from "redux-thunk";
 
@@ -10,6 +12,7 @@ import Dashboard from "./containers/Dashboard";
 import saga from "./saga";
 import type from "./actions/constant";
 import Routes from "./routes";
+import theme from './theme'
 
 // const store = createStore(reducers, applyMiddleware(thunk)); // for thunk middle ware
 const sagaMiddleWare = createSagaMiddleware(); // for saga
@@ -30,9 +33,11 @@ const App = () => {
   }, []);
 
   return (
-    <Provider store={store}>
-      <Routes />
-    </Provider>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <Routes />
+      </Provider>
+    </ThemeProvider>
   );
 };
 
