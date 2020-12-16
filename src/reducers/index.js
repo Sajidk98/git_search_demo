@@ -1,6 +1,8 @@
 import { combineReducers } from "redux";
-import users from "./users";
+import repos from "./repos";
+import manager from "./manager";
 
 export default combineReducers({
-  users,
+  repos,
+  manager,
 });

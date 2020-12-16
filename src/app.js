@@ -27,10 +27,10 @@ const store = createStore(
 sagaMiddleWare.run(saga);
 
 const App = () => {
-  useEffect(() => {
-    store.dispatch({ type: type.GET_USER_REQUEST });
-    console.log(store.getState());
-  }, []);
+  // useEffect(() => {
+  //   store.dispatch({ type: type.GET_USER_REQUEST });
+  //   console.log(store.getState());
+  // }, []);
 
   return (
     <ThemeProvider theme={theme}>

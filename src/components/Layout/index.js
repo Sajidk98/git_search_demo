@@ -9,7 +9,6 @@ import {
   Badge,
   Container,
   Grid,
-  Paper,
   Drawer,
   Divider,
   ListItem,
@@ -21,12 +20,16 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import DashboardIcon from "@material-ui/icons/Dashboard";
+import SearchIcon from "@material-ui/icons/Search";
+
+import { useHistory } from "react-router-dom";
 import styles from "./style";
 
 const Layout = (props) => {
   const { children, title } = props;
   const classes = styles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
+  const history = useHistory();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -85,15 +88,15 @@ const Layout = (props) => {
         </div>
         <Divider />
         <div>
-          <ListItem button>
+          <ListItem button onClick={() => history.push("/")}>
             <ListItemIcon>
               <DashboardIcon />
             </ListItemIcon>
             <ListItemText primary="Dashboard" />
           </ListItem>
-          <ListItem button onClick={() => console.log("clicked here!!!")}>
+          <ListItem button onClick={() => history.push("/search")}>
             <ListItemIcon>
-              <ShoppingCartIcon />
+              <SearchIcon />
             </ListItemIcon>
             <ListItemText primary="Search" />
           </ListItem>

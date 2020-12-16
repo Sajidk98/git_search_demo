@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
-import Search from "../containers/Search";
+import Search from "../pages/Search";
 
 const Routes = () => {
   return (

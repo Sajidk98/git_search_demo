@@ -18,8 +18,4 @@ export default makeStyles((theme) => ({
     height: 28,
     margin: 4,
   },
-  buttonContainer: {
-    marginTop: theme.spacing(2),
-    textAlign: "center",
-  },
 }));

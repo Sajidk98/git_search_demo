@@ -64,9 +64,7 @@ const ActionCard = (props) => {
           {hasIcon && !secondaryAction && (
             <div className={classes.iconContainer}>
               <div className={iconClasses}>
-                <Fab size="small">
                   <AddIcon color="primary" />
-                </Fab>
               </div>
             </div>
           )}

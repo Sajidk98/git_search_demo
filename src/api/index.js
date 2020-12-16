@@ -1,4 +1,4 @@
-import { fetchUsers } from "./user";
+import { fetchRepoByRepo } from "./repos";
 export default {
-  fetchUsers,
+  fetchRepoByRepo,
 };

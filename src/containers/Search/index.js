@@ -1,17 +1,59 @@
+import { Checkbox, Grid, Hidden, Paper, Typography } from "@material-ui/core";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-// import { initGetUser } from "../../actions/users"; this is for thunk
 import type from "../../actions/constant";
-const Dashboard = () => {
+import ActionCard from "../../components/ActionCard";
+import SearchInput from "../../components/SearchInput";
+import ListItem from "./listItem";
+
+const Search = () => {
   const dispatch = useDispatch();
-  const data = useSelector((state) => state);
+  const { repos, manager } = useSelector((state) => state);
 
-  useEffect(() => {
-    dispatch({ type: type.GET_USER_REQUEST });
-  }, []);
-  console.log(data, "showing data");
+  const handleChange = (e) => {
+    const value = e.target.value;
+    if (value || value !== null || value !== "") {
+      dispatch({
+        type: type.GET_REPOS_BY_REPO_REQUEST,
+        payload: e.target.value,
+      });
+    }
+  };
 
-  return <div>Hello Search!!!!!!!!!!!!!!!</div>;
+  return (
+    <>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={6}>
+          <SearchInput
+            placeHolder="search repositories"
+            onChange={handleChange}
+            disabled={repos.isLoading}
+          />
+        </Grid>
+      </Grid>
+      {repos && repos.data.length > 0 && (
+        <Hidden xsDown>
+          <ActionCard>
+            <Grid container spacing={3} alignContent="center">
+              <Grid item md={6}>
+                <Typography variant="h6" color="textSecondary">
+                  Name
+                </Typography>
+              </Grid>
+              <Grid item md={6}>
+                <Typography variant="h6" color="textSecondary">
+                  User
+                </Typography>
+              </Grid>
+            </Grid>
+          </ActionCard>
+        </Hidden>
+      )}
+
+      {repos &&
+        repos.data.map((item) => <ListItem key={item.id} data={item} />)}
+    </>
+  );
 };
 
-export default Dashboard;
+export default Search;
