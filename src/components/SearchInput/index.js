@@ -21,7 +21,6 @@ const SearchInput = (props) => {
         placeholder={placeHolder}
         inputProps={{ "aria-label": placeHolder }}
         onChange={onChange}
-        disabled={disabled}
       />
       <IconButton
         type="submit"

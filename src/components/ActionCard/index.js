@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Card, CardActionArea, Fab, IconButton } from "@material-ui/core";
 import clsx from "clsx";
 import styles from "./style";
-import AddIcon from "@material-ui/icons/Add";
+// import AddIcon from "@material-ui/icons/Add";
 
 const ActionCard = (props) => {
   const {
@@ -64,7 +64,7 @@ const ActionCard = (props) => {
           {hasIcon && !secondaryAction && (
             <div className={classes.iconContainer}>
               <div className={iconClasses}>
-                  <AddIcon color="primary" />
+                  {/* <AddIcon color="primary" /> */}
               </div>
             </div>
           )}
